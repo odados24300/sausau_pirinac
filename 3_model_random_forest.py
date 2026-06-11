@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
 import joblib
 
-df = pd.read_csv('cleaned_data.csv')
+df = pd.read_csv('data/cleaned_data.csv')
 
 X = df.drop(columns=['RICE_YIELD']).values
 y = df['RICE_YIELD'].values
@@ -42,7 +42,7 @@ search = RandomizedSearchCV(
 
 search.fit(X_train, y_train)
 
-joblib.dump(search.best_estimator_, 'best_model.pkl') #OVO CUVA MODEL
+joblib.dump(search.best_estimator_, 'models/best_model.pkl') #OVO CUVA MODEL
 
 print(f"Najbolji parametri: {search.best_params_}")
 

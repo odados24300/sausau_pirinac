@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-model = joblib.load('best_model.pkl')
+model = joblib.load('models/best_model.pkl')
 
 st.title('🌾 Predikcija prinosa pirinča')
 st.write('Unesite vrednosti parametara da biste dobili procenu prinosa.')

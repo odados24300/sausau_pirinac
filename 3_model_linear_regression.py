@@ -6,7 +6,7 @@ import linearna_reg as lr
 
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('cleaned_data.csv')
+df = pd.read_csv('data/cleaned_data.csv')
 
 X = df.drop(columns=['RICE_YIELD']).values
 y = df['RICE_YIELD'].values

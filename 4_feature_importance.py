@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('cleaned_data.csv')
+df = pd.read_csv('data/cleaned_data.csv')
 rf_best = joblib.load('best_model.pkl')
 
 importances = rf_best.feature_importances_

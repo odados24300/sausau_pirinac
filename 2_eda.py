@@ -2,14 +2,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv('cleaned_data.csv')
+df = pd.read_csv('data/cleaned_data.csv')
 
 # 1. Korelaciona matrica
 plt.figure(figsize=(14, 10))
 sns.heatmap(df.corr(), annot=True, fmt='.2f', cmap='coolwarm')
 plt.title('Korelaciona matrica')
 plt.tight_layout()
-plt.savefig('EDA_grafikoni/korelacija.png')
+plt.savefig('data/EDA_grafikoni/korelacija.png')
 plt.show()
 
 # 2. Boxplotovi za numeričke kolone
@@ -22,5 +22,5 @@ for i, col in enumerate(num_cols):
     plt.title(col)
 
 plt.tight_layout()
-plt.savefig('EDA_grafikoni/boxplots_drugi_put.png')
+plt.savefig('data/EDA_grafikoni/boxplots_drugi_put.png')
 plt.show()
