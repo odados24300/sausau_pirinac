@@ -1,0 +1,22 @@
+**METRIKE**
+
+- Linearna regresija:
+    - MAE: 457.01
+    - RMSE: 585.78
+    - R<sup>2</sup>:  0.4702
+- SciKitLearn Random Forest:
+    - MAE: 359.67
+    - RMSE: 489.31
+    - R<sup>2</sup>: 0.6304
+- SKLearn RF sa najboljim parametrima  {'n_estimators': 300, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 20}:
+    - MAE: 357.07
+    - RMSE: 483.95
+    - R<sup>2</sup>:  0.6384
+- XGBoost:
+    - MAE: 379.89
+    - RMSE: 512.22
+    - R<sup>2</sup>: 0.5949
+- Moj RF:
+    - MAE: 368.46
+    - RMSE: 490.36
+    - R<sup>2</sup>: 0.628

@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import time
 import algoritmi.random_forest as rf
+import joblib
 
 df = pd.read_csv('data/cleaned_data.csv')
 
@@ -15,8 +16,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 start = time.time()
 
-forest = rf.RandomForest(n_trees=100, max_depth=20, min_samples_split=2)
+forest = rf.RandomForest(n_trees=100, max_depth=20, min_samples_split=5)
 forest.fit(X_train, y_train)
+
+joblib.dump(forest, f'models/moj_random_forest_{forest.n_trees}_stabala_{forest.max_depth}_dubina.pkl')
 
 y_pred = forest.predict(X_test)
 

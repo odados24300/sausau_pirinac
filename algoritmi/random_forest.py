@@ -3,11 +3,8 @@ import numpy as np
 def mse(niz):
     if len(niz) == 0:
         return 0
-    else:
-        suma = 0
-        for i in range(len(niz)):
-              suma += np.square(niz[i] - np.mean(niz))
-        return suma / len(niz)
+    niz = np.asarray(niz)
+    return np.mean((niz - niz.mean()) ** 2)
 
 def best_split(x_matrica, y_niz, n_features_to_try=None):
     best_mse = float('inf')
@@ -126,7 +123,7 @@ class RandomForest:
         k = int(np.sqrt(n_features))
 
         
-        for _ in range(self.n_trees):
+        for i in range(self.n_trees):
             # 1. bootstrap uzorak
             X_sample, y_sample = bootstrap_sample(X, y)
             # 2. napravi stablo (prosledi max_depth i min_samples_split!)
@@ -135,6 +132,7 @@ class RandomForest:
             tree.fit(X_sample, y_sample)
             # 4. dodaj u listu
             self.trees.append(tree)
+            print(f"Stablo {i+1}/{self.n_trees} gotovo")   # <-- dodaj
 
     def predict(self, X):
         # predikcije svih stabala
