@@ -48,5 +48,5 @@ plt.ylabel('Greška (residual)')
 plt.title('Residual plot')
 
 plt.tight_layout()
-plt.savefig('linearna_regresija_vizualizacija.png')
+plt.savefig('plots/linearna_regresija_vizualizacija.png')
 plt.show()

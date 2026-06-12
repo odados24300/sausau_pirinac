@@ -20,5 +20,5 @@ for bar, score in zip(bars, r2_scores):
 
 plt.grid(axis='y', alpha=0.3)
 plt.tight_layout()
-plt.savefig('poredjenje_modela.png', dpi=150)
+plt.savefig('plots/poredjenje_modela.png', dpi=150)
 plt.show()
