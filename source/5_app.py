@@ -1,9 +1,12 @@
 import streamlit as st
 import joblib
 import numpy as np
-import pandas as pd
+import os
 
-model = joblib.load('models/best_model.pkl')
+BASE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(BASE, '..')
+
+model = joblib.load(os.path.join(ROOT, 'models/best_model.pkl'))
 
 st.title('🌾 Predikcija prinosa pirinča')
 st.write('Unesite vrednosti parametara da biste dobili procenu prinosa.')

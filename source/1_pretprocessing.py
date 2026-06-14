@@ -1,7 +1,11 @@
 import pandas as pd
+import os
 
-X = pd.read_csv('data/archive/X1.csv')
-y = pd.read_csv('data/archive/y1.csv')
+BASE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(BASE, '..')
+
+X = pd.read_csv(os.path.join(ROOT, 'data/archive/X1.csv'))
+y = pd.read_csv(os.path.join(ROOT, 'data/archive/y1.csv'))
 
 df = pd.concat([X, y], axis=1)
 
@@ -35,5 +39,5 @@ for col in ['Nitrogen', 'POTASH', 'PHOSPHATE', 'avg_rain']:
 print(X.shape)
 print(y.describe())
 
-df.to_csv('data/cleaned_data.csv', index=False)
+df.to_csv(os.path.join(ROOT, 'data/cleaned_data.csv'), index=False)
 # print(df.columns.tolist())

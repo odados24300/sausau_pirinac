@@ -1,13 +1,14 @@
+import os
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import RandomizedSearchCV
-import joblib
 
-df = pd.read_csv('data/cleaned_data.csv')
+BASE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(BASE, '..')
+
+df = pd.read_csv(os.path.join(ROOT, 'data/cleaned_data.csv'))
 
 X = df.drop(columns=['RICE_YIELD']).values
 y = df['RICE_YIELD'].values

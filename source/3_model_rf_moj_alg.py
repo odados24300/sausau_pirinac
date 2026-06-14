@@ -5,8 +5,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import time
 import algoritmi.random_forest as rf
 import joblib
+import os
 
-df = pd.read_csv('data/cleaned_data.csv')
+BASE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(BASE, '..')
+
+df = pd.read_csv(os.path.join(ROOT, 'data/cleaned_data.csv'))
 
 X = df.drop(columns=['RICE_YIELD']).values
 y = df['RICE_YIELD'].values
@@ -19,7 +23,7 @@ start = time.time()
 forest = rf.RandomForest(n_trees=100, max_depth=20, min_samples_split=5)
 forest.fit(X_train, y_train)
 
-joblib.dump(forest, f'models/moj_random_forest_{forest.n_trees}_stabala_{forest.max_depth}_dubina.pkl')
+joblib.dump(forest, os.path.join(ROOT, f'models/moj_random_forest_{forest.n_trees}_stabala_{forest.max_depth}_dubina.pkl'))
 
 y_pred = forest.predict(X_test)
 
